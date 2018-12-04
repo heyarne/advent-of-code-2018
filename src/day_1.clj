@@ -1,4 +1,4 @@
-(ns advent-of-code.day-1
+(ns day-1
   (:require [clojure.string :as str]))
 
 ;; this is developed in emacs w/ cider
