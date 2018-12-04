@@ -28,5 +28,6 @@
                      common))))
              input)
      (remove nil?)
-     (first))
-;; => (\i \c \x \j \v \b \r \o \b \t \u \n \l \e \l \z \p \d \m \f \k \a \h \g \s)
+     (first)
+     (apply str))
+;; => icxjvbrobtunlelzpdmfkahgs
