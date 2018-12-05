@@ -1,4 +1,6 @@
-(ns day-5)
+(ns day-5
+  (:require [clojure.string :as str]
+            [clojure.core.reducers :as r]))
 
 (def input-polymer (slurp "resources/input_5.txt"))
 (def example "dabAcCaCBAcCcaDA")
@@ -25,9 +27,9 @@
   [polymer]
   (loop [polymer polymer]
     (let [units (partition-by #(Character/toLowerCase %) polymer)
-          step (flatten (map reduce-unit units))]
+          step (flatten (pmap reduce-unit units))]
       (if (= step polymer)
-        (apply str polymer)
+        (str/trim (apply str polymer))
         (recur step)))))
 
 ;; this is the example given on the site:
@@ -36,5 +38,5 @@
 
 ;; "How many units remain after fully reacting the polymer you scanned?"
 (count (reduce-polymer input-polymer))
-;; => 11669
+;; => 11668
 ;; wrong answer :/
